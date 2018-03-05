@@ -1,0 +1,10 @@
+.block{
+  border: 5px solid black;
+    margin: 200px;
+}
+.goNext{
+  align-self: flex-end;
+}
+.TextInput,.dictionarySelection{
+  text-align: center;
+}
