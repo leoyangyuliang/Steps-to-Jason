@@ -1,10 +1,11 @@
 .block{
   border: 5px solid black;
-    margin: 200px;
+    margin: 100px;
 }
 .goNext{
-  align-self: flex-end;
+  align-self: center;
 }
 .TextInput,.dictionarySelection{
   text-align: center;
+  margin: 10px;
 }

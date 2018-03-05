@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ProjectItem from './ProjectItem';
 import PropTypes from 'prop-types';
-import Addproject from './AddProject';
 
 class Projects extends Component {
   deleteProject(id){
@@ -22,7 +21,6 @@ class Projects extends Component {
       <div className="Projects">
         <h3>Latest Projects</h3>
         {projectItems}
-        <Addproject />
       </div>
     );
   }

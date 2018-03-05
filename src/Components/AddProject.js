@@ -22,9 +22,9 @@ class AddProject extends Component {
       this.setState({newProject:{
         id: uuid.v4(),
         title: this.refs.title.value,
-        category: this.refs.category.value
+        dictionary: this.refs.dictionary.value
       }}, function(){
-        //console.log(this.state);
+      //  console.log(this.state);
         this.props.addProject(this.state.newProject);
       });
     }
@@ -37,22 +37,22 @@ class AddProject extends Component {
     });
     return (
       <div>
-        <h3>Add Project</h3>
         <form  className ="block" onSubmit={this.handleSubmit.bind(this)}>
           <div className = "TextInput">
-            <label>Title</label><br />
+            <label>Title: </label>
             <input type="text" ref="title" />
           </div>
           <div className = "dictionarySelection">
-            <label>Dictionary</label><br />
+            <label>Dictionary: </label>
             <select ref="dictionary">
               {dictionaryOption}
             </select>
           </div>
-          <br />
-          <input className="goNext" type="submit" value="next" />
-          <br />
+          <p  className="goNext" >
+          <input type="submit" value="save" />
+          </p>
         </form>
+
       </div>
     );
   }
