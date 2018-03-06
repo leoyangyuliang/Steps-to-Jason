@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import uuid from 'uuid';
 import Projects from './Components/Projects';
 import AddProject from './Components/AddProject';
+import PropertiesHolder from './Components/PropertiesHolder';
 import './App.css';
 
+
 class App extends Component {
+
   constructor(){
     super();
     this.state = {
@@ -36,6 +39,7 @@ class App extends Component {
   }
 
   componentDidMount(){
+
   }
 
   handleAddProject(project){
@@ -52,21 +56,11 @@ class App extends Component {
   }
 
 
-handleNextStep(){
-   let temp =  this.state.properties;
-   temp.push(<AddProject/>);
-   this.setState({properties:temp});
-    console.log(this.state.properties);
-}
-
   render() {
-
     return (
       <div className="App">
         <Projects projects={this.state.projects} onDelete={this.handleDeleteProject.bind(this)} />
-          <AddProject addProject={this.handleAddProject.bind(this)} />
-          <input type="button" value="new property" onClick={this.handleNextStep.bind(this)} />
-          <div>{this.state.properties}</div>
+        <PropertiesHolder addProject={this.handleAddProject.bind(this)}/>
         <hr />
       </div>
     );

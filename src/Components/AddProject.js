@@ -15,7 +15,7 @@ class AddProject extends Component {
     dictionary: ['ABCD', '中文', '213123']
   }
 
-  handleSubmit(e){
+  handleSubmit(){
     if(this.refs.title.value === ''){
       alert('请输入something');
     } else {
@@ -24,14 +24,15 @@ class AddProject extends Component {
         title: this.refs.title.value,
         dictionary: this.refs.dictionary.value
       }}, function(){
-      //  console.log(this.state);
-        this.props.addProject(this.state.newProject);
+      //console.log(this.state);
+        this.props.addProject1(this.state.newProject);
       });
     }
-    e.preventDefault();
+
   }
 
   render() {
+      console.log(this.props.dictionary);
     let dictionaryOption = this.props.dictionary.map(dictionary => {
       return <option key={dictionary} value={dictionary}>{dictionary}</option>
     });
@@ -60,7 +61,7 @@ class AddProject extends Component {
 
 AddProject.propTypes = {
   dictionary: PropTypes.PropTypes.array,
-  addProject: PropTypes.PropTypes.func
+  addProject1: PropTypes.PropTypes.func
 }
 
 export default AddProject;
