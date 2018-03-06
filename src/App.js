@@ -11,35 +11,21 @@ class App extends Component {
     super();
     this.state = {
       properties:[],
-      projects: []
-    }
-
+      projects: [    {
+            id:uuid.v4(),
+            title: 'step 1',
+            dictionary: 'buying'
+          },
+          {
+            id:uuid.v4(),
+            title: 'step 2',
+            dictionary: 'something'
+          }]
   }
+}
 
 
-  getProjects(){
-    this.setState({projects: [
-      {
-        id:uuid.v4(),
-        title: 'step 1',
-        dictionary: 'buying'
-      },
-      {
-        id:uuid.v4(),
-        title: 'step 2',
-        dictionary: 'something'
-      }
-    ]});
 
-  }
-
-  componentWillMount(){
-    this.getProjects();
-  }
-
-  componentDidMount(){
-
-  }
 
   handleAddProject(project){
     let projects = this.state.projects;
@@ -56,7 +42,7 @@ class App extends Component {
 
 
   render() {
-          console.log(this.state.projects);
+    console.log(this.state.projects);
     return (
       <div className="App">
         <Projects projects={this.state.projects} onDelete={this.handleDeleteProject.bind(this)} />

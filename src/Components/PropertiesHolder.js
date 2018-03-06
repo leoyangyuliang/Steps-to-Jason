@@ -24,9 +24,7 @@ class PropertiesHolder extends Component {
   }
 
   handleAddProject1(project){
-
     this.props.addProject(project);
-    console.log(project);
   }
 
   showNextProperty(){

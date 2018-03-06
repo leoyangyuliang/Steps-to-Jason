@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 
 
 class ProjectItem extends Component {
-  deleteProject(id){
+  deleteProject(id,e){
     this.props.onDelete(id);
+    e.preventDefault();
   }
 
   render() {

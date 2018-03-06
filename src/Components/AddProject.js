@@ -28,7 +28,6 @@ class AddProject extends Component {
         this.props.addProject1(this.state.newProject);
       });
     }
-
   }
 
   render() {
@@ -36,23 +35,19 @@ class AddProject extends Component {
       return <option key={dictionary} value={dictionary}>{dictionary}</option>
     });
     return (
-      <div>
-        <form  className ="block" onSubmit={this.handleSubmit.bind(this)}>
+      <div className ="block" >
           <div className = "TextInput">
             <label>Title: </label>
             <input type="text" ref="title" />
           </div>
           <div className = "dictionarySelection">
             <label>Dictionary: </label>
-            <select ref="dictionary">
-              {dictionaryOption}
-            </select>
+              <select ref="dictionary">
+                {dictionaryOption}
+              </select>
           </div>
-          <p  className="goNext" >
-          <input type="submit" value="save" />
-          </p>
-        </form>
-
+            <p  className="goNext" >
+            </p>
       </div>
     );
   }
