@@ -2,29 +2,20 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import AddProject from './AddProject';
 import './components.css';
-import uuid from 'uuid';
+
 
 class PropertiesHolder extends Component {
   constructor(){
     super();
     this.state = {
-      projects : [],
       dictionary: [],
     }
   }
 
   componentWillMount(){
-    this.setState({projects: [
-      {
-        id:uuid.v4(),
-        title: 'step 1',
-        dictionary: 'buying'
-      },
-    ]
-    });
 
   this.setState({
-    dictionary: [
+    dictionaryOption: [
       "pending",
       "buying",
       "selling"
@@ -33,13 +24,9 @@ class PropertiesHolder extends Component {
   }
 
   handleAddProject1(project){
-    let projects = this.state.projects;
-    projects.push(project);
-    this.setState({projects:projects});
-    this.props.addProject(this.state.projects);
 
+    this.props.addProject(project);
     console.log(project);
-    console.log(this.state.projects);
   }
 
   showNextProperty(){
@@ -49,7 +36,7 @@ class PropertiesHolder extends Component {
   render() {
     return (
       <div>
-        <AddProject ref="child1" addProject1={this.handleAddProject1.bind(this)} dictionary ={this.state.dictionary}  />
+        <AddProject ref="child1" addProject1={this.handleAddProject1.bind(this)} dictionary ={this.state.dictionaryOption}  />
         <p className ="goNextButton"><button onClick = {()=>this.refs.child1.handleSubmit()}>Next Step</button></p>
       </div>
     );

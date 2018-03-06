@@ -32,7 +32,6 @@ class AddProject extends Component {
   }
 
   render() {
-      console.log(this.props.dictionary);
     let dictionaryOption = this.props.dictionary.map(dictionary => {
       return <option key={dictionary} value={dictionary}>{dictionary}</option>
     });

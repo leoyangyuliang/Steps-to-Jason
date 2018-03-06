@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import uuid from 'uuid';
 import Projects from './Components/Projects';
-import AddProject from './Components/AddProject';
 import PropertiesHolder from './Components/PropertiesHolder';
 import './App.css';
 
@@ -57,6 +56,7 @@ class App extends Component {
 
 
   render() {
+          console.log(this.state.projects);
     return (
       <div className="App">
         <Projects projects={this.state.projects} onDelete={this.handleDeleteProject.bind(this)} />
