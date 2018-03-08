@@ -23,8 +23,9 @@ class App extends Component {
           }]
   }
 }
-
-
+  handleUpdateProperties(properties){
+    this.setState({properties:properties});
+  }
 
 
   handleAddProject(project){
@@ -38,6 +39,7 @@ class App extends Component {
     let index = projects.findIndex(x => x.id === id);
     projects.splice(index, 1);
     this.setState({projects:projects});
+    this.refs.propertiesHolders.deleteLastProperty();
   }
 
 
@@ -46,7 +48,11 @@ class App extends Component {
     return (
       <div className="App">
         <Projects projects={this.state.projects} onDelete={this.handleDeleteProject.bind(this)} />
-        <PropertiesHolder addProject={this.handleAddProject.bind(this)}/>
+        <PropertiesHolder
+                ref="propertiesHolders"
+                addProject={this.handleAddProject.bind(this)}
+                updateProperties={this.handleUpdateProperties.bind(this)}
+                properties={this.state.properties}/>
         <hr />
       </div>
     );

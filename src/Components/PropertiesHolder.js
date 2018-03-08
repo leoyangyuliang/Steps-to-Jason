@@ -9,6 +9,7 @@ class PropertiesHolder extends Component {
     super();
     this.state = {
       dictionary: [],
+      properties:[]
     }
   }
 
@@ -21,21 +22,68 @@ class PropertiesHolder extends Component {
       "selling"
     ]
   });
+
   }
 
   handleAddProject1(project){
     this.props.addProject(project);
+    this.showNextProperty();
   }
+
 
   showNextProperty(){
-    console.log("yo");
+      let temp = this.props.properties;
+    if(this.refs["child"+temp.length].refs.title.value ==='')
+    {
+      alert('请输入something');
+    }
+    else{
+    if(this.props.properties)
+    {
+      let ref = "child"+(temp.length+1);
+      console.log(ref);
+      temp.push(<AddProject
+        ref={ref}
+        key={(temp.length+1)}   //the key is the index
+        index={ref}
+        addProject1={this.handleAddProject1}
+        dictionary ={this.state.dictionaryOption}
+        />);
+          console.log(temp.length);
+      this.props.updateProperties(temp);
+    }
   }
+}
+
+deleteLastProperty(){
+  let temp = this.state.properties;
+  temp.splice(temp.legnth,1);
+  this.setState({properties:temp});
+}
 
   render() {
+    let length = this.state.properties.length;
+    console.log(length);
+
     return (
       <div>
-        <AddProject ref="child1" addProject1={this.handleAddProject1.bind(this)} dictionary ={this.state.dictionaryOption}  />
-        <p className ="goNextButton"><button onClick = {()=>this.refs.child1.handleSubmit()}>Next Step</button></p>
+        <AddProject
+              ref="child0"
+              key="0"
+              index="child0"
+              addProject1={this.handleAddProject1.bind(this)}
+              dictionary ={this.state.dictionaryOption}
+        />
+
+        <p>
+        {this.props.properties}
+        </p>
+        <p className ="goNextButton">
+        {length}
+        <button onClick={()=>this.refs["child"+length].handleSubmit()}>Submit</button>
+        <button onClick={this.showNextProperty.bind(this)}>Next Step</button>
+        </p>
+
       </div>
     );
 

@@ -39,6 +39,7 @@ class AddProject extends Component {
           <div className = "TextInput">
             <label>Title: </label>
             <input type="text" ref="title" />
+            {this.props.index}
           </div>
           <div className = "dictionarySelection">
             <label>Dictionary: </label>
