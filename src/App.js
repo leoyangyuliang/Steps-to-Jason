@@ -11,16 +11,7 @@ class App extends Component {
     super();
     this.state = {
       properties:[],
-      projects: [    {
-            id:uuid.v4(),
-            title: 'step 1',
-            dictionary: 'buying'
-          },
-          {
-            id:uuid.v4(),
-            title: 'step 2',
-            dictionary: 'something'
-          }]
+      projects: [ ]
   }
 }
   handleUpdateProperties(properties){
@@ -39,12 +30,11 @@ class App extends Component {
     let index = projects.findIndex(x => x.id === id);
     projects.splice(index, 1);
     this.setState({projects:projects});
-    this.refs.propertiesHolders.deleteLastProperty();
+    this.refs.propertiesHolders.deleteLastProperty(id);
   }
 
 
   render() {
-    console.log(this.state.projects);
     return (
       <div className="App">
         <Projects projects={this.state.projects} onDelete={this.handleDeleteProject.bind(this)} />

@@ -16,16 +16,19 @@ class AddProject extends Component {
   }
 
   handleSubmit(){
+    let addproject_func = "addProject"+this.props.index;
+    console.log(addproject_func);
     if(this.refs.title.value === ''){
       alert('请输入something');
     } else {
       this.setState({newProject:{
         id: uuid.v4(),
+        index: this.props.index,
         title: this.refs.title.value,
         dictionary: this.refs.dictionary.value
       }}, function(){
       //console.log(this.state);
-        this.props.addProject1(this.state.newProject);
+        this.props.addProject0(this.state.newProject);
       });
     }
   }
@@ -48,6 +51,7 @@ class AddProject extends Component {
               </select>
           </div>
             <p  className="goNext" >
+
             </p>
       </div>
     );

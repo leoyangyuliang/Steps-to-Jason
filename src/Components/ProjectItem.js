@@ -11,7 +11,7 @@ class ProjectItem extends Component {
   render() {
     return (
       <li className="Project">
-        <strong>{this.props.project.title}</strong>: {this.props.project.dictionary}
+        <strong>{this.props.project.index}</strong>: {this.props.project.dictionary}, Title: {this.props.project.title}  
         <a href="" onClick={this.deleteProject.bind(this, this.props.project.id)}> X </a>
       </li>
     );
