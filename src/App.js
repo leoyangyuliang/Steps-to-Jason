@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import uuid from 'uuid';
 import Projects from './Components/Projects';
-import PropertiesHolder from './Components/PropertiesHolder';
+import Stepholder from './Components/Stepholder';
 import './App.css';
 
 
@@ -10,13 +10,10 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      properties:[],
-      projects: [ ]
+      projects: []
   }
 }
-  handleUpdateProperties(properties){
-    this.setState({properties:properties});
-  }
+
 
 
   handleAddProject(project){
@@ -38,10 +35,9 @@ class App extends Component {
     return (
       <div className="App">
         <Projects projects={this.state.projects} onDelete={this.handleDeleteProject.bind(this)} />
-        <PropertiesHolder
+        <Stepholder
                 ref="propertiesHolders"
                 addProject={this.handleAddProject.bind(this)}
-                updateProperties={this.handleUpdateProperties.bind(this)}
                 properties={this.state.properties}/>
         <hr />
       </div>

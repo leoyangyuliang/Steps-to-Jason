@@ -1,5 +1,8 @@
+
+#each of these element will be called property, and can be ary
+
 export default {
-    template: null,
+    template: null,  
     suggestType: null,
     suggestNickName: null,
     dictionary: [],
@@ -12,6 +15,8 @@ export default {
     neededUsers: [],
     procedures: [],
 };
+
+
 
 
 Scenario: 用户创建新的Atthis模板

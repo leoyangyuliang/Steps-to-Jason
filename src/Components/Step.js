@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './components.css';
 import uuid from 'uuid';
 
-class AddProject extends Component {
+class Step extends Component {
   constructor(){
     super();
     this.state = {
@@ -58,9 +58,9 @@ class AddProject extends Component {
   }
 }
 
-AddProject.propTypes = {
+Step.propTypes = {
   dictionary: PropTypes.PropTypes.array,
   addProject1: PropTypes.PropTypes.func
 }
 
-export default AddProject;
+export default Step;

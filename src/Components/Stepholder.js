@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import AddProject from './AddProject';
+import Step from './Step';
 import './components.css';
 
 
-class PropertiesHolder extends Component {
+class Stepholder extends Component {
   constructor(){
     super();
     this.refs={};
     this.state = {
       number_of_properties:0,
-      dictionary: [],
       properties:[]
     }
   }
@@ -60,7 +59,7 @@ deleteLastProperty(id){
       {
         console.log("step "+i+" exist");
       }
-      let temp_properties = <AddProject
+      let temp_properties = <Step
         ref={step}
         key={i}
         index={step}
@@ -68,7 +67,7 @@ deleteLastProperty(id){
         dictionary ={this.state.dictionaryOption}
         />;
         this.state.properties.push(temp_properties);
-          //this.props.updateProperties(this.state.properties);
+
     };
     console.log(this.state.properties);
     return (
@@ -77,8 +76,7 @@ deleteLastProperty(id){
         {this.state.properties}
         </div>
         <p className ="goNextButton">
-        {length}
-        <button onClick={()=>this.refs["step"+length].handleSubmit()}>Submit</button>
+                <button onClick={()=>this.refs["step"+length].handleSubmit()}>Next Step</button>
         </p>
 
       </div>
@@ -87,9 +85,9 @@ deleteLastProperty(id){
   }
 }
 
-PropertiesHolder.propTypes = {
+Stepholder.propTypes = {
   projects: PropTypes.PropTypes.object,
   addProject: PropTypes.PropTypes.func
 }
 
-export default PropertiesHolder;
+export default Stepholder;
