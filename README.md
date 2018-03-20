@@ -1,4 +1,4 @@
-
+![](images/3.png)
 #each of these element will be called property, and can be ary
 
 export default {
